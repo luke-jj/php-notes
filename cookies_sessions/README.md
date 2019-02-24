@@ -64,3 +64,9 @@ Any page that uses the session has to begin with `session_start()`
 If cookies are deactivated sessions won't work.
 Transmitting the session id through links and http methods is not advisable,
 due to security concerns.
+
+## Password Hashing
+
+	password_hash("password", PASSWORD_DEFAULT) -> string
+	password_verify("password", password_hash) -> bool
+	password_get_info()
