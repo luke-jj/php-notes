@@ -9,6 +9,6 @@
   <title>cookie test</title>
 </head>
 <body>
-  <p><a href="read_cookies.php">read cookies</a></p>
+  <p><a href="cookies_read.php">read cookies</a></p>
 </body>
 </html>
