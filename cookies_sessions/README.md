@@ -25,6 +25,8 @@ Cookies are only send in the http header not in the body.
 
 ## Cookies in PHP
 
+    $_COOKIES[]
+
 setcookie("name", "value", expirationdate, "path", "domain", connectiontype, httpreadonly)
 
     name              cookiename
