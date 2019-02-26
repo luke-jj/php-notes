@@ -82,3 +82,6 @@ errors
     }
     set_errorhandler("customError");
     }
+
+
+## Exceptions

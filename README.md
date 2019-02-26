@@ -70,6 +70,21 @@
     ==  !=            same value
     === !==           same value and same type
     **                exponentiation
-    <=>               spaceship operator (returns -1, 0, 1)
     ? :               ternary operator
     ??                null coalescing operator
+
+### Spaceship Operator
+    <=>               spaceship operator (returns -1, 0, 1)
+
+    $compare = 2 <=> 1;
+    # 2 < 1 ?   return -1
+    # 2 = 1 ?   return 0
+    # 2 > 1 ?   return 1
+
+### Null Coalesce Operator
+    ??          if-set-or
+                return left operand if it is not null else return right operand
+
+    $name = $firstName ?? "Guest";
+
+    Return the value of $firstName if it is not null, else return "Guest".

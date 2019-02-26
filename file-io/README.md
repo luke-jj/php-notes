@@ -49,6 +49,23 @@
     x+	    Creates a new file for read/write. error if file exists
 
 
-## Parsing CSV
-    fgetcsv($fileheader)
-    fputcsv($fileheader, $array)
+## CSV - (database, spreadsheet)
+    fgetcsv($fileheader) -> array     read one row from csv file 
+    fputcsv($fileheader, $array)      add new row to csv file
+
+
+## JSON - (APIs, webtraffic)
+    json_decode(string[, bool $assoc = false]) -> object
+    json_encode(string[, ...options]) -> string
+
+    file_put_contents($fh, $string)       add encoded string to .json file
+
+if $assoc is true the objects will be transformed into associative arrays.
+
+
+## XML (feeds)
+read the file as usual and use the htmlspecialchars() method to escape tags.
+
+    simplexml_load_file(string $filename) -> object
+
+    asXML()
