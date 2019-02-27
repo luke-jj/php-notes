@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Read data from the projects table.
+ * Read all data/rows from the projects table.
  */
 function get_projects() {
   include 'connection.php';
@@ -12,6 +12,26 @@ function get_projects() {
     echo "Error!: " . $e->getMessage() . "<br>\n";
     return array();
   }
+}
+
+/*
+ * Read data/row from a specific project
+ */
+function get_project($project_id) {
+  include 'connection.php';
+
+  $sql = 'SELECT * FROM projects WHERE project_id = ?';
+
+  try {
+    $results = $db->prepare($sql);
+    $results->bindValue(1, $project_id, PDO::PARAM_INT);
+    $results->execute();
+  } catch (Exception $e) {
+    echo "Error!: " . $e->getMessage() . "<br>\n";
+    return false;
+  }
+
+  return $results->fetch();
 }
 
 /*
