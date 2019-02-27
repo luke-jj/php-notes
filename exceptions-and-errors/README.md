@@ -1,8 +1,8 @@
-# Errors in PHP
+# Errors and Exceptions in PHP
 **Errors** are the procedural approach to handle system malfunctions, while
 **Exceptions** are the object-oriented approach to handle malfunctions.
 
-## Error Types
+## Errors in PHP: Error Types
 ### System/Internal Errors
 Logic errors in code.
 
@@ -84,4 +84,35 @@ errors
     }
 
 
-## Exceptions
+## Exceptions in PHP
+An exception is an object.
+An exception is *thrown* in the event that something goes wrong.
+
+When an exception is thrown it halts the processing of the program,
+until the exception is either *caught* or *left unhandled*.
+
+Unhandled Exceptions behave like a fatal error and stop the application.
+Caught Exceptions redirect the control flow. The programmer can determine
+programmatically what happens when an Exception occurs.
+
+Exceptions are meant to be *handled*, either resolved, or re-thrown.
+Exceptions should not be silenced or ignored.
+
+### try - catch - finally
+
+### Display all errors as exceptions [errors as exceptions](exceptions.php)
+    ini_set('display_errors', 'Off');
+
+    function exception_error_handler($severity, $message, $file, $line) {
+      throw new ErrorException($message, 0, $severity, $file, $line);
+    }
+
+    set_error_handler("exception_error_handler");
+
+### Default Exception Handler
+    function exception_handler($e) {
+      echo "Uncaught exception: " . $e->getMessage();
+    }
+
+    set_exception_handler("exception_handler");
+

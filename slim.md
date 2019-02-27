@@ -28,4 +28,3 @@ Composer
 tightly coupled vs loosely coupled (dependency injection)
 requiring the actual dependency vs requiring a dependency container
 
-
