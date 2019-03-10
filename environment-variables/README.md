@@ -30,4 +30,22 @@ Keep environment variables **separate** from the codebase, gitignore.
 1. Set with code (separate file that is not in version control)
 2. Set on the server/system
 
+    putenv()
+
 Popular PHP package: *PHP dotenv*
+
+### Storing Arrays in Environment Variables
+store arrays as a json string
+
+    putenv('REPOSITORY={"type":"sqlite","source":"inc/quotes.db"}');
+
+
+Include a sample file in version control containing the required variables.
+
+    env.gmail
+    env.yahoo
+
+
+Throw an error if an environment variable is not found.
+
+    #dotenv->required(['USERNAME', 'PASSWORD']);

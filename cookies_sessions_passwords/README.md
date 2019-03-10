@@ -2,6 +2,7 @@
 HTTP is stateless
 -> cookies save state as text on the client-side.
 -> sessions save state on the server-side.
+(data persistence)
 
 Cookies and sessions are transmitted in the http header.
 
@@ -38,7 +39,11 @@ setcookie("name", "value", expirationdate, "path", "domain", connectiontype, htt
     httpreadonly      {bool} - can only be read by http and not by javascript
 
 
-cookies are read from the `$_COOKIES` associative array.
+Cookies are read from the `$_COOKIES` associative array.
+
+Values in a cookie are stored as a string.
+
+Cookies time out after one hour by default.
 
 ### Deleting Cookies
 Cookies are deleted by setting a cookie with the same name and an expirationdate
@@ -52,7 +57,8 @@ from the past.
 
 ## Sessions
 Session data is saved on the serverside. Clients are mapped to the session data
-with a cookie saved on the clientside.
+with a cookie saved on the clientside. The `PHPSESSID` cookie is what ties
+sessions to a unique browser.
 
 To save values in a session, simply save them as a new element in the
 `$_SESSION` array.
@@ -66,6 +72,12 @@ Any page that uses the session has to begin with `session_start()`
 If cookies are deactivated sessions won't work.
 Transmitting the session id through links and http methods is not advisable,
 due to security concerns.
+
+### Terminating A Session
+Sessions are automatically terminated if:
+1. The session times out (24 minutes by default)
+2. The user closes the browser
+3. The `session_destroy()` function is triggered
 
 ## Password Hashing
 
